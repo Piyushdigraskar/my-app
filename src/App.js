@@ -1,6 +1,6 @@
 
 import './App.css';
-import ExpenseItems from './Components/ExpenseItem';
+import Expenses from './Components/Expenses';
 
 function App() {
   const expense = [
@@ -34,16 +34,10 @@ function App() {
       location: 'india',
     },
   ]
-  const expenseItems =[];
-  for(let i = 0;i<expense.length;i++){
-    expenseItems.push(
-      <ExpenseItems title={expense[i].title} amount={expense[i].amount} date={expense[i].date} location={expense[i].location}></ExpenseItems>
-    )
-  }
   return (
     <div className="App">
       <h2>Lets Start!</h2>
-      {expenseItems}
+      <Expenses item={expense}></Expenses>
     
     </div>
   );
