@@ -8,5 +8,4 @@ const ExpenseDetails = (props)=>{
         </div>
     );
 }
-
 export default ExpenseDetails;
