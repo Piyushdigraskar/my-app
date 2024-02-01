@@ -2,22 +2,43 @@ import { useState } from 'react';
 import './ExpenseForm.css';
 
 const ExpenseForm = () => {
-    const [enteredTitle, setEnteredTitle] = useState('');
-    const [enteredAmount, setEnteredAmount] = useState('');
-    const [enteredDate, setEnteredDate] = useState('');
-    const [enteredLocation, setEnteredLocation] = useState('');
+    // const [enteredTitle, setEnteredTitle] = useState('');
+    // const [enteredAmount, setEnteredAmount] = useState('');
+    // const [enteredDate, setEnteredDate] = useState('');
+    // const [enteredLocation, setEnteredLocation] = useState('');
+    
+    const [userInput, setUserInput] = useState(
+        {
+            setEnteredTitle:'',
+            setEnteredAmount:'',
+            setEnteredDate:'',
+            setEnteredLocation:'',
+        }
+    );
     
     const NewTitleHandeler = (event)=>{
-        setEnteredTitle(event.target.value);
+     //   setEnteredTitle(event.target.value);
+        setUserInput((prevState)=>{
+            return {...prevState, setEnteredTitle:event.target.value};
+        });
     }
     const NewAmountHandeler = (event)=>{
-        setEnteredAmount(event.target.value);
+      //  setEnteredAmount(event.target.value);
+      setUserInput((prevState)=>{
+        return {...prevState, setEnteredAmount:event.target.value};
+    });
     }
     const NewDateHandeler = (event)=>{
-        setEnteredDate(event.target.value);
+    //    setEnteredDate(event.target.value);
+    setUserInput((prevState)=>{
+        return {...prevState, setEnteredDate:event.target.value};
+    });
     }
     const NewLocationHandeler = (event)=>{
-        setEnteredLocation(event.target.value);
+        //setEnteredLocation(event.target.value);
+        setUserInput((prevState)=>{
+            return {...prevState, setEnteredLocation:event.target.value};
+        });
     }
 
     return (
