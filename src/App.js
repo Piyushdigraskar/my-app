@@ -36,10 +36,14 @@ const App =()=> {
       location: 'india',
     },
   ]
+
+  const addExpenseHandler = (expense)=>{
+    console.log(expense);
+  }
   return (
     <div className="App">
       <h2>Lets Start!</h2>
-      <NewExpense></NewExpense>
+      <NewExpense onAddExpense={addExpenseHandler}></NewExpense>
       <Expenses item={expense}></Expenses>
     </div>
   );

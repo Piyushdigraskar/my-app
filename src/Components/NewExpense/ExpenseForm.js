@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './ExpenseForm.css';
 
-const ExpenseForm = () => {
+const ExpenseForm = (props) => {
     const [enteredTitle, setEnteredTitle] = useState('');
     const [enteredAmount, setEnteredAmount] = useState('');
     const [enteredDate, setEnteredDate] = useState('');
@@ -49,27 +49,31 @@ const ExpenseForm = () => {
             date: new Date(enteredDate),
             Location: enteredLocation
         }
-        console.log(expenseData);
+        props.onSaveExpenseData(expenseData);
+        setEnteredTitle('');
+        setEnteredAmount('');
+        setEnteredDate('');
+        setEnteredLocation('');
     }
 
     return (
-        <form onClick={submitHandler}>
+        <form onSubmit={submitHandler}>
             <div className='new-expense__controls'>
                 <div className='new-expense__control'>
                     <label>Title</label>
-                    <input type="text" onChange={NewTitleHandeler} />
+                    <input type="text" value={enteredTitle} onChange={NewTitleHandeler} />
                 </div>
                 <div className='new-expense__control'>
                     <label>Amount</label>
-                    <input type='number' min='0.01' step='0.01' onChange={NewAmountHandeler} />
+                    <input type='number' value={enteredAmount} min='0.01' step='0.01' onChange={NewAmountHandeler} />
                 </div>
                 <div className='new-expense__control'>
                     <label>Date</label>
-                    <input type='date' min='2019/01/01' max='2022/12/31' onChange={NewDateHandeler} />
+                    <input type='date' value={enteredDate} min='2019/01/01' max='2022/12/31' onChange={NewDateHandeler} />
                 </div>
                 <div className='new-expense__control'>
                     <label>Location</label>
-                    <input type="text" onChange={NewLocationHandeler} />
+                    <input type="text" value={enteredLocation} onChange={NewLocationHandeler} />
                 </div>
             </div>
             <div className='new-expense__actions'>
