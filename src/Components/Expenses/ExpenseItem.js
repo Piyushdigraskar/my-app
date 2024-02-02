@@ -21,13 +21,15 @@ const ExpenseItems = (props)=> {
     }
     return (
             //<ExpenseDate/> //we can also write it as self closing
-        <Card className='expense-item'>
+        <li>
+            <Card className='expense-item'>
             <ExpenseDate date={props.date}></ExpenseDate>
             <ExpenseDetails title={title} location={props.location} amount={amount}></ExpenseDetails>
             <button onClick={clickHandeler}>Click Here</button>
             <button onClick={amountHandeler}>Initial Price</button>
             <button onClick={deleteHandeler}>Delete</button>
         </Card>
+        </li>
     );
 }
 
